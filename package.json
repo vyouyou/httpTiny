@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@types/jest": "^22.2.0",
+    "@types/node": "^9.4.7",
+    "http": "^0.0.0",
+    "koa": "^2.5.0",
+    "test": "^0.6.0",
+    "ts-jest": "^22.4.1",
+    "typescript": "^2.7.2"
+  },
+  "scripts": {
+    "start-server": "node ./src/httpServer/index.js",
+    "test": "jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  },
+  "devDependencies": {
+    "jest": "^22.4.2"
+  }
+}
