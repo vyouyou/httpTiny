@@ -1,8 +1,8 @@
 const Koa = require("koa");
 const app = new Koa();
+const {ClientResponse} = require("http");
 
 const main = ctx =>{
-    console.log("lalala");
     ctx.response.body = "你说啥杰宝玩意";
 };
 

@@ -5,7 +5,7 @@ class RequestParse extends ABaseParese {
     protected array: String[];
     headLine: {};
     header: {};
-    data: {};
+    data: String;
 
     constructor(str:String){
         super(str);

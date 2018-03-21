@@ -1,7 +1,6 @@
 import {Socket} from "net";
-import { parseUrl } from "../utils/net";
 
-let client:Socket = null;
+let client:Socket;
 
 const tcpPromise = async (url:string,data:string)=>{
     if(!client) client = new Socket();
