@@ -1,51 +1,55 @@
-import {SocketStates} from "../config/enums";
-import {Socket} from "net";
+import { SocketStates } from "../config/enums";
+import { Socket } from "net";
 import ResponseParse from "../utils/ResponseParse";
 
-export class Client{
-    private socket:Socket;
-    private cookie:string = "";
-    private socketState:SocketStates;
-    private host:string = "";
-    private path:string = "";
-    private dataListener:(data:ResponseParse)=>{}
+class Client {
+    private socket: Socket;
+    private cookie: string = "";
+    private socketState: SocketStates;
+    private host: string = "";
+    private path: string = "";
 
-    constructor(url:string){
+    constructor(url: string) {
         this.socket = new Socket();
         this.genHost(url);
-        this.initSocket();
-        this.openSocket();
     }
 
-    genHost(url:string){
-        url.replace("http://","");
+    genHost(url: string) {
+        url.replace("http://", "");
         const hostIndex = url.search("/");
-        this.host = url.substr(0,hostIndex);
-        this.path = url.substr(hostIndex+1);
+        this.host = url.substr(0, hostIndex);
+        this.path = url.substr(hostIndex + 1);
     }
 
-    initSocket(){
-        this.socket.addListener("close",(hadError)=>{
-            this.socketState = SocketStates.CLOSED;
-        });
+    sendData(str: String):Promise<Object> {
+        if (this.socketState === SocketStates.CONNECTED) {
+            this.socket.write(str);
+        } else {
+            this.openSocket(str);
+        }
+        return new Promise((resolve, reject) => {
+            this.socket.addListener("close", (hadError) => {
+                this.socketState = SocketStates.CLOSED;
+            });
 
-        this.socket.addListener("data",(buffer)=>{
-            this.dataListener&&this.dataListener(new ResponseParse(buffer.toString()));
-        });
+            this.socket.addListener("data", (buffer) => {
+                resolve(new ResponseParse(buffer.toString()));
+            });
 
-        this.socket.addListener("error",(error)=>{
-            this.socketState = SocketStates.CLOSED;
+            this.socket.addListener("error", (error) => {
+                this.socketState = SocketStates.CLOSED;
+                reject(error);
+            });
         });
     }
 
-    openSocket(){
-        this.socket.connect({port:80,host:this.host},()=>{
+    openSocket(str?: String) {
+        this.socket.connect( 3000, this.host , () => {
             this.socketState = SocketStates.CONNECTED;
+            if (str) this.socket.write(str);
         });
-    }
-
-    setDataListener(func:(data:ResponseParse)=>{}){
-        this.dataListener = func;
     }
 
 }
+
+export default Client;

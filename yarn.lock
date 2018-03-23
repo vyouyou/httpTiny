@@ -186,7 +186,7 @@ array-unique@^0.3.2:
   version "0.3.2"
   resolved "http://registry.npm.taobao.org/array-unique/download/array-unique-0.3.2.tgz#a894b75d4bc4f6cd679ef3244a9fd8f46ae2d428"
 
-arrify@^1.0.1:
+arrify@^1.0.0, arrify@^1.0.1:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/arrify/download/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
@@ -557,7 +557,7 @@ chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0, chalk@^2.0.1:
+chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0:
   version "2.3.2"
   resolved "http://registry.npm.taobao.org/chalk/download/chalk-2.3.2.tgz#250dc96b07491bfd601e648d66ddf5f60c7a5c65"
   dependencies:
@@ -841,7 +841,7 @@ detect-newline@^2.1.0:
   version "2.1.0"
   resolved "http://registry.npm.taobao.org/detect-newline/download/detect-newline-2.1.0.tgz#f41f1c10be4b00e87b5f13da680759f2c5bfd3e2"
 
-diff@^3.2.0:
+diff@^3.1.0, diff@^3.2.0:
   version "3.5.0"
   resolved "http://registry.npm.taobao.org/diff/download/diff-3.5.0.tgz#800c0dd1e0a8bfbc95835c202ad220fe317e5a12"
 
@@ -2230,6 +2230,10 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
+make-error@^1.1.1:
+  version "1.3.4"
+  resolved "http://registry.npm.taobao.org/make-error/download/make-error-1.3.4.tgz#19978ed575f9e9545d2ff8c13e33b5d18a67d535"
+
 makeerror@1.0.x:
   version "1.0.11"
   resolved "http://registry.npm.taobao.org/makeerror/download/makeerror-1.0.11.tgz#e01a5c9109f2af79660e4e8b9587790184f5a96c"
@@ -3070,7 +3074,7 @@ source-map-support@^0.4.15:
   dependencies:
     source-map "^0.5.6"
 
-source-map-support@^0.5.0:
+source-map-support@^0.5.0, source-map-support@^0.5.3:
   version "0.5.4"
   resolved "http://registry.npm.taobao.org/source-map-support/download/source-map-support-0.5.4.tgz#54456efa89caa9270af7cd624cc2f123e51fbae8"
   dependencies:
@@ -3348,6 +3352,19 @@ ts-jest@^22.4.1:
     pkg-dir "^2.0.0"
     yargs "^11.0.0"
 
+ts-node@^5.0.1:
+  version "5.0.1"
+  resolved "http://registry.npm.taobao.org/ts-node/download/ts-node-5.0.1.tgz#78e5d1cb3f704de1b641e43b76be2d4094f06f81"
+  dependencies:
+    arrify "^1.0.0"
+    chalk "^2.3.0"
+    diff "^3.1.0"
+    make-error "^1.1.1"
+    minimist "^1.2.0"
+    mkdirp "^0.5.1"
+    source-map-support "^0.5.3"
+    yn "^2.0.0"
+
 tunnel-agent@^0.6.0:
   version "0.6.0"
   resolved "http://registry.npm.taobao.org/tunnel-agent/download/tunnel-agent-0.6.0.tgz#27a5dea06b36b04a0a9966774b290868f0fc40fd"
@@ -3617,3 +3634,7 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
+
+yn@^2.0.0:
+  version "2.0.0"
+  resolved "http://registry.npm.taobao.org/yn/download/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
