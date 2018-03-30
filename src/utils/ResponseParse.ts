@@ -1,12 +1,12 @@
 import ABaseParese from "./ABaseParse";
 
 export default class ResponseParse extends ABaseParese {
-    constructor(str:String){
+    constructor(str:string){
         super(str);
     }
 
 
-    parseHeadLine(item:String) {
+    parseHeadLine(item:string) {
         item.split(" ").forEach((value,index)=>{
             if(index === 0){
                 this.headLine["http-version"] = value;

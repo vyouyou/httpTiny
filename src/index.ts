@@ -8,7 +8,7 @@ export const clientRequest = async (
 ) => {
     try{
         const response = await tcpPromise(url,formatData(method));
-        return new ResponseParse(response as String);
+        return new ResponseParse(response as string);
     }catch(err){
         throw err;
     }

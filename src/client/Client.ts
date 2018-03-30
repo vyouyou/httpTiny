@@ -14,14 +14,21 @@ class Client {
         this.genHost(url);
     }
 
-    genHost(url: string) {
+    genHost(url: string):String {
         url.replace("http://", "");
         const hostIndex = url.search("/");
-        this.host = url.substr(0, hostIndex);
-        this.path = url.substr(hostIndex + 1);
+        if(hostIndex > 0){
+            this.host = url.substr(0, hostIndex);
+            this.path = url.substr(hostIndex + 1);
+        }else{
+            this.host = url;
+            this.path = "";
+        }
+        return this.host;
     }
 
-    sendData(str: String):Promise<Object> {
+
+    sendData(str: string):Promise<Object> {
         if (this.socketState === SocketStates.CONNECTED) {
             this.socket.write(str);
         } else {
@@ -43,9 +50,10 @@ class Client {
         });
     }
 
-    openSocket(str?: String) {
-        this.socket.connect( 3000, this.host , () => {
+    openSocket(str?: string) {
+        this.socket.connect( 80, this.host , () => {
             this.socketState = SocketStates.CONNECTED;
+            console.log("str",str);
             if (str) this.socket.write(str);
         });
     }

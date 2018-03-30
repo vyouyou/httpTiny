@@ -1,17 +1,17 @@
 import ABaseParese from "./ABaseParse";
 
 class RequestParse extends ABaseParese {
-    protected str: String;
-    protected array: String[];
+    protected str: string;
+    protected array: string[];
     headLine: {};
     header: {};
-    data: String;
+    data: string;
 
-    constructor(str:String){
+    constructor(str:string){
         super(str);
     }
 
-    parseHeadLine(item: String) {
+    parseHeadLine(item: string) {
         item.split(" ").forEach((value,index)=>{
             if(index === 0){
                 this.headLine["method"] = value;

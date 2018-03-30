@@ -1,11 +1,15 @@
 import Client from "../src/client/Client";
 import ResponseParse from "../src/utils/ResponseParse";
+import {genBaseRequest} from "../src/utils/ABaseGen";
 
-const httpClient = new Client("127.0.0.1");
+const httpClient = new Client("www.qq.com");
+
 
 test("test http client",()=>{
-    httpClient.sendData("GET /aaa HTTP/1.1\n\n")
+    const str = genBaseRequest("get","/","www.qq.com",{},"");
+    httpClient.sendData(str)
     .then((res)=>{
+        console.log("res",httpClient.genHost);
         expect(res).toBe(Object);
     })
     .catch(err=>{

@@ -1,11 +1,11 @@
 abstract class ABaseParse{
-    protected str:String = "";
+    protected str:string = "";
     headLine:{} = {};
     header:{} = {};
-    data:String = "";
+    data:string = "";
 
 
-    constructor(str:String){
+    constructor(str:string){
         this.str = str;
         this.startParse();
     }
@@ -23,15 +23,15 @@ abstract class ABaseParse{
         this.parseData(this.str);
     }
 
-    abstract parseHeadLine(item:String):void;
+    abstract parseHeadLine(item:string):void;
 
-    parseHeader(str:String){
+    parseHeader(str:string){
         str.split("\n\r").forEach((item)=>{
             this.header[item.split(": ")[0]] = item.split(": ")[1];
         });
     }
 
-    parseData(str:String){
+    parseData(str:string){
         this.data = str;
     };
 
@@ -43,7 +43,7 @@ abstract class ABaseParse{
         return this.header;
     }
 
-    getData():String{
+    getData():string{
         return this.data;
     }
 }

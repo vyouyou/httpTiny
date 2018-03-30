@@ -1,48 +1,56 @@
 export interface Header {
     // common
-    "Connection"?: String,
+    "Connection"?: string,
     "Keep-Alive"?: {
         max: number,
         timeout: number,
     },
 
     //"no-store"|"no-cache"|"must-revalidate"|"max-age"|"max-table"|"min-fresh"|"max-age"|"no-cache"|"no-store"|"only-if-cached"
-    "Cache-Control"?: String,
+    "Cache-Control"?: string,
     //client
-    "User-Agent"?: String,
-    "Date"?: String,
-    "Accept"?: String,
-    "Accept-Encoding"?: String,
-    "Accept-Language"?: String,
-    "Accept-Charest"?: String,
-    "Cookie"?: "String",
-    "Authorizatioin"?: String,
-    "If-Modefied-Since"?: String,
-    "If-None-Tag"?: String,
-    "Etag"?: String,
+    "User-Agent"?: string,
+    "Date"?: string,
+    "Accept"?: string,
+    "Accept-Encoding"?: string,
+    "Accept-Language"?: string,
+    "Accept-Charest"?: string,
+    "Cookie"?: "string",
+    "Authorizatioin"?: string,
+    "If-Modefied-Since"?: string,
+    "If-None-Tag"?: string,
+    "Etag"?: string,
     "Max-Forward"?: number,
-    "Proxy-Authorization"?: String,
-    "Authorization"?: String
+    "Proxy-Authorization"?: string,
+    "Authorization"?: string
     //Server
     "Age"?: number,
-    "Pulbic"?: String,
-    "Retry-After"?: String,
-    "Server"?: String,
-    "Title"?: String,
-    "Warning"?: String,
-    "Accept-Ranges"?: String,
-    "Set-Cookie"?: String,
+    "Pulbic"?: string,
+    "Retry-After"?: string,
+    "Server"?: string,
+    "Title"?: string,
+    "Warning"?: string,
+    "Accept-Ranges"?: string,
+    "Set-Cookie"?: string,
     //entity
-    "Allow"?: String,
-    "Location"?: String,
+    "Allow"?: string,
+    "Location"?: string,
     //基础url
-    "Content-Base"?: String,
-    "Content-Encoding"?: String,
-    "Content-Language"?: String,
+    "Content-Base"?: string,
+    "Content-Encoding"?: string,
+    "Content-Language"?: string,
     "Content-Length"?: Number,
-    "Content-Location"?: String,
-    "Content-MD5"?: String,
-    "Content-Range"?: String,
-    "Content-Type"?: String
+    "Content-Location"?: string,
+    "Content-MD5"?: string,
+    "Content-Range"?: string,
+    "Content-Type"?: string
 };
+
+export interface IRequest{
+    url:string,
+    method:"get" | "post" | "delete" | "put" | "options" | "headers" | "trace",
+    header?:Header,
+    path?:string,
+    data?:string
+}
 
