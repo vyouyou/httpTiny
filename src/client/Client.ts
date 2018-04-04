@@ -51,7 +51,7 @@ class Client {
     }
 
     openSocket(str?: string) {
-        this.socket.connect( 80, this.host , () => {
+        this.socket.connect( 3000, this.host , () => {
             this.socketState = SocketStates.CONNECTED;
             console.log("str",str);
             if (str) this.socket.write(str);
